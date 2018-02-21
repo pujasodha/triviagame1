@@ -1,0 +1,30 @@
+body {
+    background-color: #48A9FF;
+    color: black;
+    text-align: center;
+    font-family: 'Nixie One', cursive;
+
+}
+
+#gamePlay {
+    background-color: #FF6962;
+    margin: auto;
+    padding: 40px;
+    width: 50%;
+    text-align: center;
+    width: 70%;
+    /* height: 350px; */
+}
+
+#startBtn {
+    margin: auto;
+}
+
+#answers {
+    color: white;
+    text-align: left;
+    padding-left: 75px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 1.2em;
+}
