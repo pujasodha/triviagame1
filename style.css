@@ -28,3 +28,17 @@ body {
     padding-bottom: 30px;
     font-size: 1.2em;
 }
+
+#gif {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#actualAnswer {
+    color: white;
+    font-size: 1.2em;
+}
+
+#message {
+    font-size: 1.2em;
+}

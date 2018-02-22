@@ -62,13 +62,13 @@ var incorrectAnswer = 0
 var seconds = ""
 var time = ""
 var unanswered = 0
-var answered
+var answered = ""
 
 var message = {
     correct: "You have earned a Shrute Buck!",
     incorrect: "Dwight, you ignorant slut!",
-    outOfTime: "'You miss 100% of the shots you don't take' - Wayne Gretzky - Michael Scott",
-    finished: "Congrats!"
+    outOfTime: " 'You miss 100% of the shots you don't take' - Wayne Gretzky - Michael Scott ",
+    finished: "Congrats! You have finished!",
 }
 
 $(document).ready(function () {
@@ -111,19 +111,19 @@ $(document).ready(function () {
 
     //sets timer to go down
     function countdown() {
-        seconds = 20;
-        $('#timeLeft').html('<h3>Time Remaining: ' + seconds + '</h3>');
-        answered = true;
-        time = setInterval(showCountdown, 1000);
+        seconds = 20
+        $('#timeLeft').html('<h3>Time Remaining: ' + seconds + '</h3>')
+        answered = true
+        time = setInterval(showCountdown, 1000)
     }
 
     function showCountdown() {
         seconds--
-        $('#timeLeft').html('<h4>Time Remaining: ' + seconds + '</h4>');
+        $('#timeLeft').html('<h4>Time Remaining: ' + seconds + '</h4>')
         if (seconds < 1) {
-            clearInterval(time);
-            answered = false;
-            answerPage();
+            clearInterval(time)
+            answered = false
+            answerPage()
         }
     }
 
@@ -138,12 +138,12 @@ $(document).ready(function () {
         //define the text displayed for correct answer and which index is the correct answer using a for loop 
         for (var i = 0; i < 4; i++) {
         var correctAnswerText = officeQuestions[currentQuestion].answerOptions[officeQuestions[currentQuestion].answer]
-        var correctAnswerIndex = officeQuestions[currentQuestion].answer;
+        var correctAnswerIndex = officeQuestions[currentQuestion].answer
             console.log(correctAnswerIndex)
         }
 
         //display gif when answer clicked 
-        $("#gif").html('<img src = "./assets/gifs/' + gif[currentQuestion] + '.gif" width = "400px">')
+        $("#gif").html('<img src = "./assets/gifs/' + gif[currentQuestion] + '.gif"width = "400px">')
         
         //if else statements for correct, incorrect or unanswered 
         if ((userSelected === correctAnswerIndex) && (answered === true)) {
@@ -153,19 +153,19 @@ $(document).ready(function () {
         else if ((userSelected != correctAnswerIndex) && (answered === true)) {
             incorrectAnswer++
             $("#message").html(message.incorrect)
-            $('#actualAnswer').html('The correct answer was: ' + correctAnswerText);
+            $('#actualAnswer').html('The correct answer was: ' + correctAnswerText)
         }
         else {
             unanswered++;
-            $('#message').html(message.outOfTime);
-            $('#actualAnswer').html('The correct answer was: ' + correctAnswerText);
-            answered = true;
+            $('#message').html(message.outOfTime)
+            $('#actualAnswer').html('The correct answer was: ' + correctAnswerText)
+            answered = true
         }
-        if(currentQuestion == (officeQuestions.length-1)){
+        if(currentQuestion == (officeQuestions.length - 1)){
             setTimeout(scoreboard, 5000)
         } else{
-            currentQuestion++;
-            setTimeout(newQuestion, 5000);
+            currentQuestion++
+            setTimeout(newQuestion, 5000)
         }	
     }
     //display final message and how many unanswered questions 
@@ -176,9 +176,9 @@ $(document).ready(function () {
         $("#actualAnswer").empty()
         $("#gif").empty()
 
-        $("#finalMessage").html("<p>" + message.finished + "</p>")
-        $("#correctAnswers").html("<p>" + "You earned " + correctAnswer + " Shrute Bucks!" + "</p>")
-        $("#incorrectAnswers").html("<p>" + "Incorrect: " + incorrectAnswer + "</p>")
-        $("#unanswered").html("<p>" + "Unanswered: " + unanswered + "</p>")
+        $("#finalMessage").html(message.finished + "<br>")
+        $("#correctAnswers").html("You earned " + correctAnswer + " Shrute Bucks!<br>")
+        $("#incorrectAnswers").html("Incorrect: " + incorrectAnswer + "<br>")
+        $("#unanswered").html("Unanswered: " + unanswered + "<br>")
     }
 })
